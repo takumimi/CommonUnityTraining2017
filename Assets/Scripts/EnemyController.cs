@@ -22,10 +22,10 @@ public class EnemyController : MonoBehaviour
 	private void OnCollisionEnter (Collision col)
 	{
 		//接触対象はPlayer タグかどうか
-		if (col.CompareTag ("Player"))
+		if (col.collider.CompareTag ("Player"))
 		{
 			//Rigidbody を停止させる
-			col.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+			col.collider.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
 			//ゲームオーバーを表示する
 			UIController.ShowGameOverLabel();
